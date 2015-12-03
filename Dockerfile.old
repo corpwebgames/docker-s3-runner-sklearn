@@ -1,4 +1,4 @@
-FROM dpatriot/docker-awscli
+FROM dpatriot/docker-s3-runner
 MAINTAINER Shago Vyacheslav <v.shago@corpwebgames.com>
 
 ADD requirements.txt /opt/
