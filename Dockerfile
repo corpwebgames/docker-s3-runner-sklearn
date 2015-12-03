@@ -37,4 +37,5 @@ RUN apt-get -y update && apt-get install -y \
     readline-common
 
 RUN apt-get build-dep -y python-matplotlib
+
 RUN pip install -r /opt/requirements.txt
