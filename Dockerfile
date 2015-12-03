@@ -39,3 +39,6 @@ RUN apt-get -y update && apt-get install -y \
 RUN apt-get build-dep -y python-matplotlib
 
 RUN pip install -r /opt/requirements.txt
+RUN pip install --pre xgboost
+
+RUN rm -rf /var/lib/apt/lists/*
