@@ -1,4 +1,4 @@
-FROM dpatriot/docker-awscli
+FROM dpatriot/docker-s3-runner
 MAINTAINER Shago Vyacheslav <v.shago@corpwebgames.com>
 
 ADD requirements.txt /opt/
@@ -38,7 +38,8 @@ RUN apt-get -y update && apt-get install -y \
 
 RUN apt-get build-dep -y python-matplotlib
 
-RUN pip install -r /opt/requirements.txt
-RUN pip install --pre xgboost
+RUN pip install -r /opt/requirements.txt && \
+    pip install --pre xgboost && \
+    pip install certifi==2015.04.28
 
 RUN rm -rf /var/lib/apt/lists/*
