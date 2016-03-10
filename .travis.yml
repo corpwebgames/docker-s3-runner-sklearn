@@ -5,7 +5,7 @@ services:
 - docker
 install:
 - docker build -t sklearn .
-- docker run --entrypoint="" --name sklearn sklearn sh -c "aws --version;pip list"
+- docker run --entrypoint /bin/bash --name sklearn sklearn -c "pip list"
 script:
 - docker ps -a
 notifications:
