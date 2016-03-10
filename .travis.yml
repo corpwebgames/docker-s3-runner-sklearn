@@ -1,0 +1,13 @@
+language: python
+python:
+- 2.7
+services:
+- docker
+install:
+- docker build -t sklearn .
+- docker run --entrypoint="" --name sklearn sklearn sh -c "aws --version;pip list"
+script:
+- docker ps -a
+notifications:
+  slack:
+    secure: b0f6s8VvEYPcUBiP+GR1mLzTLwC6hS9OFntAK4Xg0LiY81J0jzwG3dtmWpNTm8ntl0D52OvA73hQZZnPTZ0zprSmD7XM4u48EYiosbpWG7Oin8zoCvjukbSSBm4CvMxTp02El6OPS5coiUfsvAP+bibrh1wOAHOC5OtAzyb6udlpmu/5oLFSTUJB3/zKeian1dSO0KUPGh+Jm4jpHCeYXUC6JYgOqasXj9DqkslRd0w+3DhNgWjmeF6Yfg6hmMW1/U03F0GCBBY8j4Bi+go3FzuPIgn2tftaokbUe3VRUH5p5QeZo4EGgI77rL3Ain3r/ZYKwDbQgcY0+CU7hHvJuVdyaWn3Fa+jn8phg/F4gsKC4IT/s9Nl+vDZRTwliKq/hJ9bHabFMMxdMMfgT8CuJDeKlE32rHjN055txiLQyjKvogGMXMz/JECclJy7a0oLgEq/iJaJu83x1s4oe2SQIxwhHhie1tW2QiIGFb4p5FcmkadTm8vm06bKUfpVN/0ujg0fkhNSb+EgG3vHqXzNY1MRk/FqmdQbIpppszl4tlvzgKnmeUjNT2sN+BjXeKgfA8IW4dQek3i3E7Yf5iujqH6UfnUK8xsNyDxbB8r6NSkoQVuO3+BKZs2lHQRnM6Sp31kzpBRFl4WWiT0pwZZsmUqKQ4uaO0u5oWtBL4hORXc=
