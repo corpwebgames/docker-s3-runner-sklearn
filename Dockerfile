@@ -1,5 +1,4 @@
-FROM dpatriot/docker-s3-runner:1.4.0
-MAINTAINER Shago Vyacheslav <v.shago@corpwebgames.com>
+FROM webgames/s3-runner:1.4.0
 
 ADD requirements.txt /opt/
 
@@ -34,12 +33,13 @@ RUN apt-get -y update && apt-get install -y \
     unzip \
     wget \
     libncurses5-dev \
-    readline-common
+    readline-common \
+    ca-certificates \
+    && apt-get build-dep -y python-matplotlib && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN apt-get build-dep -y python-matplotlib
-
-RUN pip install -r /opt/requirements.txt && \
-    pip install --pre xgboost && \
+RUN pip install --upgrade --no-use-wheel pip setuptools && \
+    pip install -r /opt/requirements.txt && \
     pip install certifi==2015.04.28
 
 RUN rm -rf /var/lib/apt/lists/*
