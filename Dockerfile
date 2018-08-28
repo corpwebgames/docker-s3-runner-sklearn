@@ -1,4 +1,4 @@
-FROM webgames/s3-runner:1.4.0
+FROM webgames/s3-runner:1.5.0
 
 ADD requirements.txt /opt/
 
